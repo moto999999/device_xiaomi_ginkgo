@@ -23,12 +23,12 @@
 #
 
 # Inherit from sdm660-common
--include device/xiaomi/sdm660-common/BoardConfigCommon.mk
+-include device/xiaomi/sm6125-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/xiaomi/lavender
+DEVICE_PATH := device/xiaomi/ginkgo
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := lavender
+TARGET_OTA_ASSERT_DEVICE := ginkgo
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -43,7 +43,7 @@ TARGET_SCREEN_WIDTH := 1080
 TARGET_SCREEN_DENSITY := 420
 
 # Kernel
-TARGET_KERNEL_CONFIG := lavender_defconfig
+TARGET_KERNEL_CONFIG := ginkgo-perf_defconfig
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ADDITIONAL_FLAGS := \
     DTC=$(shell pwd)/prebuilts/misc/$(HOST_OS)-x86/dtc/dtc
@@ -52,9 +52,9 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := \
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/manifest.xml
 
 # Partitions
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3640619008
-BOARD_VENDORIMAGE_PARTITION_SIZE := 2080305152
-BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4831838208
+BOARD_VENDORIMAGE_PARTITION_SIZE := 1610612736
+BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 
 # Recovery
@@ -64,7 +64,7 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Security patch level
-VENDOR_SECURITY_PATCH := 2019-10-05
+VENDOR_SECURITY_PATCH := 2020-05-01
 
 # Inherit the proprietary files
--include vendor/xiaomi/lavender/BoardConfigVendor.mk
+-include vendor/xiaomi/ginkgo/BoardConfigVendor.mk
